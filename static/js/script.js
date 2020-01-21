@@ -4149,6 +4149,7 @@ function setFieldValidChanged(changedBooleanArr) {
   if (checkValidField !== !changedBooleanArr.includes(false)) {
     checkValidField = !changedBooleanArr.includes(false);
     AndroidInterface.onFieldsValidChanged(checkValidField);
+    window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
   }
 }
 
@@ -4201,12 +4202,14 @@ telButtons.forEach((button, i) => {
         value: ''
       };
       AndroidInterface.onClick(JSON.stringify(phone), MOBILE_PHONE);
+    window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
     } else {
       const phone = {
         code: `P${i}`,   //заглушка
         value: telValueArr[i].replace(/[\s-()_+]/g, '').slice(1)
       };
       AndroidInterface.onClick(JSON.stringify(phone), MOBILE_PHONE);
+    window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
     }
   });
 });
@@ -4236,6 +4239,8 @@ allFields.forEach((field, i) => {
       }
       objectsArr[i] = fieldObj;
       AndroidInterface.onFieldsValueChange(JSON.stringify(objectsArr));
+    window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
+      
     } else {
       const fieldObj = {
         code: field.id,
@@ -4244,6 +4249,8 @@ allFields.forEach((field, i) => {
       }
       objectsArr[i] = fieldObj;
       AndroidInterface.onFieldsValueChange(JSON.stringify(objectsArr));
+    window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
+                         
     }
   });
 });

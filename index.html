@@ -5325,6 +5325,7 @@
           checkValidFields = !changedBooleanArr.includes(false);
           console.log("Изменение валидности", checkValidFields);
           AndroidInterface.onFieldsValidChanged(checkValidFields);
+        window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
         }
       }
 
@@ -5354,6 +5355,7 @@
             objectsArr[i] = fieldObj;
             console.log("отправка даных при изменении любого поля", JSON.stringify(objectsArr));
             AndroidInterface.onFieldsValueChange(JSON.stringify(objectsArr));
+            window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
           } else {
             const fieldObj = {
               code: field.id,
@@ -5363,6 +5365,7 @@
             objectsArr[i] = fieldObj;
             console.log("отправка даных при изменении любого поля", JSON.stringify(objectsArr));
             AndroidInterface.onFieldsValueChange(JSON.stringify(objectsArr));
+            window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
           }
         });
       });
@@ -5390,6 +5393,7 @@
         });
         console.log("отправка всех данных при возврате на экран", JSON.stringify(objectsArr));
         AndroidInterface.onFieldsValueChange(JSON.stringify(objectsArr));
+        window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
       }
 
       /* Принятие телефона из книжки Android */
@@ -5446,6 +5450,7 @@
             };
             console.log("отправка телефона в книжку", JSON.stringify(phone), MOBILE_PHONE);
             AndroidInterface.onClick(JSON.stringify(phone), MOBILE_PHONE);
+            window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
           } else {
             const phone = {
               code: telIdArr[i],
@@ -5453,6 +5458,7 @@
             };
             console.log("отправка телефона в книжку", JSON.stringify(phone), MOBILE_PHONE);
             AndroidInterface.onClick(JSON.stringify(phone), MOBILE_PHONE);
+            window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
           }
         });
       });
