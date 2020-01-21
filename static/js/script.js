@@ -4137,10 +4137,12 @@ allFields.forEach((field, i) => {
       const changedTextValid = field.value.length !== 0 && accountRegExp.test(field.value);
       changedBooleanArr[i] = changedTextValid;
       setFieldValidChanged(changedBooleanArr);
+     sendMessageParameters();
     } else if (field.name === 'tel') {
       const changedTextValid = field.value.length !== 0 && telRegExp.test(field.value);
       changedBooleanArr[i] = changedTextValid;
       setFieldValidChanged(changedBooleanArr);
+                          sendMessageParameters();
     }
   });
 });
@@ -4149,7 +4151,6 @@ function setFieldValidChanged(changedBooleanArr) {
   if (checkValidField !== !changedBooleanArr.includes(false)) {
     checkValidField = !changedBooleanArr.includes(false);
     AndroidInterface.onFieldsValidChanged(checkValidField);
-    window.webkit.messageHandlers.nativeapp.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd");
   }
 }
        
@@ -4160,6 +4161,7 @@ function sendMessageParameters() {
 
 /* Проверка на валидность всех полей */
 function isValidFields() {
+        sendMessageParameters();
   const booleanArr = [];
   allFields.forEach((field, i) => {
     switch (field.name) {
