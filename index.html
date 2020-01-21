@@ -113,6 +113,14 @@
 
     <!-- Скрипты -->
     <script>
+         
+          function printHelloWorld() {
+              window.webkit.messageHandlers.test.postMessage("Hello, world!");
+          }
+
+          window.onload = printHelloWorld;
+         
+
       (function(global, factory) {
         typeof exports === "object" && typeof module !== "undefined"
           ? factory(exports)
