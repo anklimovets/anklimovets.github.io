@@ -79,24 +79,33 @@ class ViewController: UIViewController, WKScriptMessageHandler, CNContactPickerD
         
     }
     
-//    func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
-//        <#code#>
-//    }
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
+        
+        let thePhoneNumber = (contactProperty.value as AnyObject).stringValue
+        evaluatePhone(phone: thePhoneNumber ?? "no phone")
+    }
     
-    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+    func evaluatePhone ( phone : String ) {
         
-        
-        if let phone = contact.phoneNumbers.first?.value as? CNPhoneNumber {
-            
-            print(phone.stringValue)
-            self.webView.evaluateJavaScript("document.getElementById('phone').value='\(phone.stringValue)'"){(aresult, berror) in
-                if berror != nil {
-                    
-                }
+        self.webView.evaluateJavaScript("document.getElementById('phone').value='\(phone)'"){(aresult, berror) in
+            if berror != nil {
+                
             }
         }
-        
-        
     }
+    //    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+    //
+    //
+    //        if let phone = contact.phoneNumbers.first?.value as? CNPhoneNumber {
+    //
+    //            print(phone.stringValue)
+    //            self.webView.evaluateJavaScript("document.getElementById('phone').value='\(phone.stringValue)'"){(aresult, berror) in
+    //                if berror != nil {
+    //
+    //                }
+    //            }
+    //        }
+    //
+    //    }
+    
 }
-
