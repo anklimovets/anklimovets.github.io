@@ -11,16 +11,18 @@ import WebKit
 
 class ViewController: UIViewController, WKScriptMessageHandler {
     
+    var webView : WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let config = WKWebViewConfiguration()
         let userContentController = WKUserContentController()
-
+        
         //userContentController.add(self, name: "test")
         userContentController.add(self, name: "observer")
         config.userContentController = userContentController
         
-        let webView = WKWebView(frame: .zero, configuration: config)
+        webView = WKWebView(frame: .zero, configuration: config)
         
         view.addSubview(webView)
         
@@ -38,9 +40,29 @@ class ViewController: UIViewController, WKScriptMessageHandler {
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-         if message.name == "test", let messageBody = message.body as? String {
-             print(messageBody)
-         }
-     }
+        if message.name == "test", let messageBody = message.body as? String {
+            print(messageBody)
+            
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.evaluateNow()
+        }
+    }
+    
+    func evaluateNow(){
+        webView.evaluateJavaScript("document.getElementById('email').value") {(result, error) in
+            if error != nil {
+                return
+            }
+            let value = String.init(result as! String)
+                          self.webView.evaluateJavaScript("document.getElementById('name').value='\(value)'"){(aresult, berror) in
+                              if berror != nil {
+                                  
+                              }
+                          }
+        }
+        
+    }
 }
 
