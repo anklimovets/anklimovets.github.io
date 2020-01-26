@@ -42,13 +42,16 @@ class ViewController: UIViewController, WKScriptMessageHandler, CNContactPickerD
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == "test", let messageBody = message.body as? String {
-            print(messageBody)
-            
-        }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.evaluateNow()
+        if message.name == "observer", let messageBody = message.body as? String {
+            
+            if messageBody == "openPhoneBook" {
+                self.openVCard()
+                print(messageBody)
+            }
+            else {
+                self.evaluateNow()
+            }
         }
     }
     
@@ -63,7 +66,6 @@ class ViewController: UIViewController, WKScriptMessageHandler, CNContactPickerD
                     
                 }
             }
-            self.openVCard()
         }
         
     }
@@ -72,18 +74,28 @@ class ViewController: UIViewController, WKScriptMessageHandler, CNContactPickerD
         let contactPickerViewController:CNContactPickerViewController = CNContactPickerViewController()
         contactPickerViewController.modalPresentationStyle = .overCurrentContext
         contactPickerViewController.delegate = self
-        //contactPickerViewController.displayedPropertyKeys = @[CNContactPhoneNumbersKey]
+        contactPickerViewController.displayedPropertyKeys = [CNContactPhoneNumbersKey]
         self.present(contactPickerViewController, animated: true, completion: nil)
         
     }
     
+//    func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
+//        <#code#>
+//    }
+    
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         
-        self.webView.evaluateJavaScript("document.getElementById('name').value='\(contact.givenName)'"){(aresult, berror) in
-            if berror != nil {
-                
+        
+        if let phone = contact.phoneNumbers.first?.value as? CNPhoneNumber {
+            
+            print(phone.stringValue)
+            self.webView.evaluateJavaScript("document.getElementById('phone').value='\(phone.stringValue)'"){(aresult, berror) in
+                if berror != nil {
+                    
+                }
             }
         }
+        
         
     }
 }

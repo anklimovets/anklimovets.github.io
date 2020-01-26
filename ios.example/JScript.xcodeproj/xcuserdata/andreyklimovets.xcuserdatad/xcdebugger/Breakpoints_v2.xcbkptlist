@@ -7,49 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "45A171C9-B23C-4DF7-9232-5BA377E24AA8"
+            uuid = "38B189E3-9E07-47B1-9984-2E2D1FE879E8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JScript/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "contactPicker(_:didSelect:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "userContentController(_:didReceive:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "45A171C9-B23C-4DF7-9232-5BA377E24AA8 - fd0a6a8606c1c240"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "JScript.ViewController.contactPicker(_: __C.CNContactPickerViewController, didSelect: __C.CNContact) -&gt; ()"
-                  moduleName = "JScript"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andreyklimovets/Desktop/Projects/RSB-JavaScript/ios.example/JScript/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "176">
-               </Location>
-               <Location
-                  uuid = "45A171C9-B23C-4DF7-9232-5BA377E24AA8 - 8b3a781461bf2b15"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in JScript.ViewController.contactPicker(_: __C.CNContactPickerViewController, didSelect: __C.CNContact) -&gt; ()"
-                  moduleName = "JScript"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andreyklimovets/Desktop/Projects/RSB-JavaScript/ios.example/JScript/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "82">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
