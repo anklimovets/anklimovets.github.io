@@ -8,8 +8,10 @@
 
 import UIKit
 import WebKit
+import Contacts
+import ContactsUI
 
-class ViewController: UIViewController, WKScriptMessageHandler {
+class ViewController: UIViewController, WKScriptMessageHandler, CNContactPickerDelegate {
     
     var webView : WKWebView!
     
@@ -56,11 +58,31 @@ class ViewController: UIViewController, WKScriptMessageHandler {
                 return
             }
             let value = String.init(result as! String)
-                          self.webView.evaluateJavaScript("document.getElementById('name').value='\(value)'"){(aresult, berror) in
-                              if berror != nil {
-                                  
-                              }
-                          }
+            self.webView.evaluateJavaScript("document.getElementById('name').value='\(value)'"){(aresult, berror) in
+                if berror != nil {
+                    
+                }
+            }
+            self.openVCard()
+        }
+        
+    }
+    
+    func openVCard() {
+        let contactPickerViewController:CNContactPickerViewController = CNContactPickerViewController()
+        contactPickerViewController.modalPresentationStyle = .overCurrentContext
+        contactPickerViewController.delegate = self
+        //contactPickerViewController.displayedPropertyKeys = @[CNContactPhoneNumbersKey]
+        self.present(contactPickerViewController, animated: true, completion: nil)
+        
+    }
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        
+        self.webView.evaluateJavaScript("document.getElementById('name').value='\(contact.givenName)'"){(aresult, berror) in
+            if berror != nil {
+                
+            }
         }
         
     }
