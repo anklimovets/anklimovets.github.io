@@ -87,8 +87,8 @@ class ViewController: UIViewController, WKScriptMessageHandler, CNContactPickerD
     
     func evaluatePhone ( phone : String ) {
         
-        self.webView.evaluateJavaScript("document.getElementById('phone').value='\(phone)'"){(aresult, berror) in
-            if berror != nil {
+        self.webView.evaluateJavaScript("document.getElementById('phone').value='\(phone)'"){(result, error) in
+            if error != nil {
                 
             }
         }
