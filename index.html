@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang=\ "en\" theme=\ "white\">\n
+<html lang=\ "en\" theme=\ "white\">
 
 <head>\n
-    <meta http-equiv=\ "Content-Type\" content=\ "text/html; charset=UTF-8\">\n
-    <meta charset=\ "UTF-8\">\n
-    <meta name=\ "viewport\" content=\ "width=device-width, initial-scale=1, shrink-to-fit=no\">\n
-    <meta http-equiv=\ "X-UA-Compatible\" content=\ "ie=edge\">\n
-    <meta http-equiv=\ "Access-Control-Allow-Origin\" content=\ "*\">\n
-    <title>Docyment</title>\n
+    <meta http-equiv=\ "Content-Type\" content=\ "text/html; charset=UTF-8\">
+    <meta charset=\ "UTF-8\">
+    <meta name=\ "viewport\" content=\ "width=device-width, initial-scale=1, shrink-to-fit=no\">
+    <meta http-equiv=\ "X-UA-Compatible\" content=\ "ie=edge\">
+    <meta http-equiv=\ "Access-Control-Allow-Origin\" content=\ "*\">
+    <title>Docyment</title>
     <style>
         \n @font-face {
             font-family: Roboto;
@@ -670,46 +670,4 @@
     </script>
 </body>\n
 
-</html>
-
-
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <title>ExploreWKWebViewJavascript</title>
-            <script type="text/javascript">
-                function submitForm() {
-                    var message = {
-                        name: document.getElementById("name").value,
-                        email: document.getElementById("email").value
-                    };
-                    window.webkit.messageHandlers.observer.postMessage(message);
-                }
-            function openPhoneBook() {
-                window.webkit.messageHandlers.observer.postMessage("openPhoneBook");
-            }
-            </script>
-            </head>
-    <body>
-        <div>
-            <h2>Enter your data:</h2>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Enter email" name="email">
-                    </div>
-            <div>
-                <label for="name">Name:</label>
-                <input type="value" id="name" placeholder="Enter name" name="name">
-                    </div>
-            <div>
-                <label for="phone">Phone:</label>
-                <input type="value" id="phone" placeholder="Enter phone" name="phone">
-                    </div>
-            <button onclick="openPhoneBook()">Open Phone Book</button>
-            <button onclick="submitForm()">Click me</button>
-        </div>
-    </body>
 </html>
